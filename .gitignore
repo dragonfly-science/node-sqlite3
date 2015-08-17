@@ -20,3 +20,4 @@ test/tmp
 test/nw/app.nw
 .DS_Store
 .idea
+*.node

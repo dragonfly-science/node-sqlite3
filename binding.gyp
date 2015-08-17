@@ -6,7 +6,7 @@
   },
   "targets": [
     {
-      "target_name": "sqlite3",
+      "target_name": "sqlite3gyp",
       "include_dirs": ["<!(node -e \"require('nan')\")"],
       "conditions": [
         ["sqlite != 'internal'", {
@@ -41,10 +41,10 @@
     {
       "target_name": "action_after_build",
       "type": "none",
-      "dependencies": [ "sqlite3" ],
+      "dependencies": [ "sqlite3gyp" ],
       "copies": [
           {
-            "files": [ "<(PRODUCT_DIR)/sqlite3.node" ],
+            "files": [ "<(PRODUCT_DIR)/sqlite3gyp.node" ],
             "destination": "."
           }
       ]
