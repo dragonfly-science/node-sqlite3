@@ -1,18 +1,11 @@
 {
-    "name": "sqlite3",
-    "description": "Asynchronous, non-blocking SQLite3 bindings",
+    "name": "sqlite3-electron",
+    "description": "Unmaintained version of sqlite3 that builds with electron",
     "version": "3.0.10",
     "homepage": "http://github.com/mapbox/node-sqlite3",
     "author": {
         "name": "MapBox",
         "url": "https://mapbox.com/"
-    },
-    "binary": {
-        "module_name" : "node_sqlite3",
-        "module_path" : "./lib/binding/{node_abi}-{platform}-{arch}",
-        "host"        : "https://mapbox-node-binary.s3.amazonaws.com",
-        "remote_path" : "./{name}/v{version}/{toolset}/",
-        "package_name": "{node_abi}-{platform}-{arch}.tar.gz"
     },
     "contributors": [
         "Konstantin Käfer <mail@kkaefer.com>",
@@ -34,22 +27,19 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git://github.com/mapbox/node-sqlite3.git"
+        "url": "git://github.com/dragonfly-science/node-sqlite3.git"
     },
     "dependencies": {
         "nan": "~1.8.4",
-        "node-pre-gyp": "~0.6.9"
+        "node-gyp": "^2.0.1"
     },
-    "bundledDependencies": [
-        "node-pre-gyp"
-    ],
     "devDependencies": {
         "mocha": "1.x",
         "aws-sdk": "~2.1.26"
     },
     "scripts": {
         "prepublish":"npm ls",
-        "install": "node-pre-gyp install --fallback-to-build",
+        "install": "node-gyp rebuild",
         "pretest": "node test/support/createdb.js",
         "test": "mocha -R spec --timeout 480000"
     },

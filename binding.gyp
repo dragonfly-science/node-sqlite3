@@ -6,7 +6,7 @@
   },
   "targets": [
     {
-      "target_name": "<(module_name)",
+      "target_name": "sqlite3",
       "include_dirs": ["<!(node -e \"require('nan')\")"],
       "conditions": [
         ["sqlite != 'internal'", {
@@ -41,11 +41,11 @@
     {
       "target_name": "action_after_build",
       "type": "none",
-      "dependencies": [ "<(module_name)" ],
+      "dependencies": [ "sqlite3" ],
       "copies": [
           {
-            "files": [ "<(PRODUCT_DIR)/<(module_name).node" ],
-            "destination": "<(module_path)"
+            "files": [ "<(PRODUCT_DIR)/sqlite3.node" ],
+            "destination": "."
           }
       ]
     }
